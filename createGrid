@@ -1,0 +1,31 @@
+function createGrid(){
+	var lowerLat = 0;
+	var upperLat = 0;
+	var lowerLon = 0;
+	var upperLon = 0;
+
+	//Change in latitude for 30 meters
+	var changeLat = 1/3700;
+
+	var gridPoints = [];
+	var countLat = 0;
+
+	//Grid spaced by 30 meters
+ 	for(var i = lowerLat; i < upperLat; i += changelat)
+ 	{
+ 		gridPoints[countLat] = [];
+ 		countLat++;
+
+ 		//Change in longitude for 30 meters
+		var changeLon = Math.cos(i) * 69.172 //this is a constant of miles at equator
+
+		//Convert to meters
+		changeLon = changeLon * 1609.34;
+ 		
+ 		for(var j = lowerLon; j < upperLon; j += changeLon)
+ 		{
+ 			gridPoints[countLat][0] = i;
+ 			gridPoints[countLat][1] = j;
+ 		}
+ 	}
+ }
